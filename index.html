@@ -100,14 +100,14 @@ function startStop(){ //start/stop button pressed
         	var ipIspArr = I("ip").textContent.split(' - ', 3);
         	var ip = ipIspArr[0];
         	var isp = ipIspArr[1];
-        // 	var addr = ipIspArr[2] === undefined? '' :ipIspArr[2];  城市弃用
+		var addr = ipIspArr[2] === undefined? '' :ipIspArr[2];
         	var progress = Math.floor(100*prog);
         	var key = key_prefix + "_" + ip;
 			var qita="多线程测试"
         	if (progress > 20 && (progress % 10 == 0) && progress != milestone) {
         		console.log(progress);
 				
-        		var params = 'key='+key+'&ip='+ip+'&isp='+isp+'&dspeed='+I("dlText").textContent+'&uspeed='+I("ulText").textContent+'&ping='+I("pingText").textContent+"&qita="+qita
+        		var params = 'key='+key+'&ip='+ip+'&isp='+isp+'&addr='+addr+'&dspeed='+I("dlText").textContent+'&uspeed='+I("ulText").textContent+'&ping='+I("pingText").textContent+"&qita="+qita
         						+'&jitter='+I("jitText").textContent;
         		console.log(params);
         		xhr.timeout = 3000;
